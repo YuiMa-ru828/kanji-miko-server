@@ -16,13 +16,11 @@ KANJI_LIST = [
 async def generate_kanji(request: Request):
     data = await request.json()
     name = data.get("name", "Friend")
-
     kanji_info = random.choice(KANJI_LIST)
-
     return JSONResponse({
         "messages": [
             {
-                "text": f"Thanks, {name}! ✨\nYour Kanji is: 【{kanji_info['kanji']}】\nIt means \"{kanji_info['meaning']}\". 🌟"
+                "text": f"Thanks, {name}! 🌟\nYour Kanji is: {kanji_info['kanji']} ✨\nIt means: {kanji_info['meaning']}."
             }
         ]
     })
